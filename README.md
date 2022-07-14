@@ -3,6 +3,9 @@
 A new Flutter project.
 
 ## Getting Started
+Please run the application in the normal way. Signup using your preferred email.
+Then login with the email you just signed up. Then you are in.
+Enjoy.
 
 This project is a starting point for a Flutter application.
 
