@@ -29,11 +29,6 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
   final _form = GlobalKey<FormState>();
   final _commentFocusNode = FocusNode();
 
-  var _newComment = Comments(
-    id: 0,
-    postId: 0,
-    body: '',
-  );
 
   Future<void> _saveForm() async {
     final isValid = _form.currentState!.validate();
