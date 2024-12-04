@@ -31,8 +31,8 @@ class PostDetail {
 }
 
 class Comments {
-  int? id;
-  int? postId;
+  String? id;
+  String? postId;
   String? body;
 
   Comments({this.id, this.postId, this.body});

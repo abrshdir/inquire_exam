@@ -20,18 +20,11 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
 
   late int globalPostId = 0;
 
-  Future<void> _refreshPosts(BuildContext context) async {
-    final postId = ModalRoute.of(context)!.settings.arguments;
-    globalPostId = int.parse(postId.toString());
-    return await Provider.of<Posts>(context, listen: false).retrievePost(int.parse(postId.toString()));
-  }
-
   final _form = GlobalKey<FormState>();
   final _commentFocusNode = FocusNode();
 
   var _newComment = Comments(
-    id: 0,
-    postId: 0,
+    postId: 0.toString(),
     body: '',
   );
 
@@ -163,9 +156,8 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                     },
                     onSaved: (value) {
                       _newComment = Comments(
-                        postId: globalPostId,
+                        postId: globalPostId.toString(),
                         body: value,
-                        id: 0,
                       );
                     },
                   ),
