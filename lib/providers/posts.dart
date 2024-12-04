@@ -85,11 +85,10 @@ class Posts with ChangeNotifier {
   //problem with api
   Future<void> addComment(Comments comment) async {
     final url = dotenv.env['API_BASE_URL'] !+ '/comments';
-    print({'postId': comment.postId.toString(), 'body': comment.body.toString()});
     try {
       final response = await http.post(
          Uri.parse(url),
-        body: json.encode({'postId': comment.postId.toString(), 'body': comment.body.toString()}),
+        body: {'postId': comment.postId, 'body': comment.body},
       );
       final newPost = Comments(
         body: jsonDecode(response.body)["body"],
@@ -100,7 +99,6 @@ class Posts with ChangeNotifier {
       _postDetail.comments!.insert(0, newPost);
       notifyListeners();
     } catch (error) {
-      print(error);
       rethrow;
     }
   }
